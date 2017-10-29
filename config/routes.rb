@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'competences#index'
+
   resources :competences
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'site/index'
 end
