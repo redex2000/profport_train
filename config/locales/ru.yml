@@ -1,0 +1,13 @@
+ru:
+  helpers:
+    submit:
+      create: 'Создать'
+      update: 'Обновить'
+  activerecord:
+    models:
+      competence:
+        one: 'Компетенция'
+    attributes:
+      competence:
+        title: 'Название'
+        description: 'Описание'

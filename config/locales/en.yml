@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    submit:
+      create: 'Create'
+      update: 'Update'
+  activerecord:
+    models:
+      competence:
+        one: 'Competence'
+    attributes:
+      competence:
+        title: 'Title'
+        description: 'Description'
