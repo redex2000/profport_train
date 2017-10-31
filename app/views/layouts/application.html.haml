@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title ProfportTrain
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    = render 'layouts/top_menu'
+    = render 'layouts/flashes'
+    .container
+      .row
+        .col-md-8.col-md-offset-1= yield

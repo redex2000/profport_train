@@ -1,0 +1,7 @@
+%div.container-fluid
+  %div.row
+    %div.col-md-5.col-md-offset-1
+      - flash.each do |type, message|
+        %div{ class: "alert #{alert_class(type)} alert-dismissable" }
+          = link_to '×', '#', class: 'close', data: { dismiss: 'alert' }, aria: { label: 'close' }
+          = message

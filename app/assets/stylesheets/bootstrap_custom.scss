@@ -1,0 +1,6 @@
+$bootstrap-sass-asset-helper: false !important;
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "/assets/bootstrap/");
+$navbar-default-bg: #80ca18;
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
