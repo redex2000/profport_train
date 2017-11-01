@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :competence do
     title "Поддержание здоровья"
@@ -5,7 +7,7 @@ FactoryBot.define do
 
     factory :invalid_competence do
       title nil
-      description 'Веб-разрабатываем!'
+      description "Веб-разрабатываем!"
     end
 
     factory :other_valid_competence do

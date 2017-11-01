@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CompetencesController < ApplicationController
   before_action :set_competence, only: [:show, :edit, :update, :destroy]
 
@@ -28,7 +30,7 @@ class CompetencesController < ApplicationController
 
     respond_to do |format|
       if @competence.save
-        format.html { redirect_to @competence, notice: 'Competence was successfully created.' }
+        format.html { redirect_to @competence, notice: "Competence was successfully created." }
         format.json { render :show, status: :created, location: @competence }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class CompetencesController < ApplicationController
   def update
     respond_to do |format|
       if @competence.update(competence_params)
-        format.html { redirect_to @competence, notice: 'Competence was successfully updated.' }
+        format.html { redirect_to @competence, notice: "Competence was successfully updated." }
         format.json { render :show, status: :ok, location: @competence }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class CompetencesController < ApplicationController
   def destroy
     @competence.destroy
     respond_to do |format|
-      format.html { redirect_to competences_url, notice: 'Competence was successfully destroyed.' }
+      format.html { redirect_to competences_url, notice: "Competence was successfully destroyed." }
       format.json { head :no_content }
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   EMAIL_REGEXP = /\w+@\w+\.\w{2,10}/
 

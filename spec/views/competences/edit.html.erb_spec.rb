@@ -1,10 +1,12 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe "competences/edit", type: :view do
   before(:each) do
     @competence = assign(:competence, Competence.create!(
-      :title => "MyString",
-      :description => "MyText"
+                                        title: "MyString",
+                                        description: "MyText"
     ))
   end
 
