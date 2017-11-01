@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031172442) do
+ActiveRecord::Schema.define(version: 20171101081354) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "competences", force: :cascade do |t|
     t.string "title"
@@ -20,12 +23,13 @@ ActiveRecord::Schema.define(version: 20171031172442) do
   end
 
   create_table "concepts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "term_id"
+    t.bigint "user_id"
+    t.bigint "term_id"
     t.float "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["term_id"], name: "index_concepts_on_term_id"
+    t.index ["user_id", "term_id"], name: "index_concepts_on_user_id_and_term_id", unique: true
     t.index ["user_id"], name: "index_concepts_on_user_id"
   end
 
@@ -37,8 +41,8 @@ ActiveRecord::Schema.define(version: 20171031172442) do
   end
 
   create_table "skills", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "instruction_id"
+    t.bigint "user_id"
+    t.bigint "instruction_id"
     t.float "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,8 +51,8 @@ ActiveRecord::Schema.define(version: 20171031172442) do
   end
 
   create_table "terms", force: :cascade do |t|
-    t.string "title"
-    t.text "definition"
+    t.string "title", null: false
+    t.text "definition", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,4 +64,6 @@ ActiveRecord::Schema.define(version: 20171031172442) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "skills", "instructions"
+  add_foreign_key "skills", "users"
 end
