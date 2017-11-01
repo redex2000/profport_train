@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101081354) do
+ActiveRecord::Schema.define(version: 20171101180245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20171101081354) do
     t.text "definition", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "competence_id"
+    t.index ["competence_id"], name: "index_terms_on_competence_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,4 +68,5 @@ ActiveRecord::Schema.define(version: 20171101081354) do
 
   add_foreign_key "skills", "instructions"
   add_foreign_key "skills", "users"
+  add_foreign_key "terms", "competences"
 end

@@ -3,7 +3,8 @@
 Rails.application.routes.draw do
   root to: "competences#index"
 
-  resources :competences
+  resources :competences do
+    resources :terms
+  end
   resources :users
-  get "site/index"
 end

@@ -17,6 +17,7 @@ class CompetencesController < ApplicationController
   # GET /competences/new
   def new
     @competence = Competence.new
+    @terms = @competence.terms.build
   end
 
   # GET /competences/1/edit
@@ -71,6 +72,6 @@ class CompetencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def competence_params
-      params.require(:competence).permit(:title, :description)
+      params.require(:competence).permit(:title, :description, terms_attributes: [ :id, :title, :definition, :_destroy ])
     end
 end

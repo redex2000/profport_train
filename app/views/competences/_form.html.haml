@@ -1,4 +1,8 @@
 = simple_form_for @competence do |form|
   = form.input :title
   = form.input :description
+  = form.simple_fields_for :terms do |term|
+    = term.input :title
+    = term.input :definition, as: :text
+    = term.input :_destroy, as: :boolean
   = form.button :submit, class: 'btn-info'
