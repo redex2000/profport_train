@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   def index
     @users = User.all
+    respond_to do |format|
+      format.html
+      format.json
+      format.xml
+    end
   end
 
   def show
@@ -13,7 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      redirect_to users_path, notice: 'Пользователь создан успешно'
+      redirect_to users_path, notice: "Пользователь создан успешно"
     end
   end
 
@@ -21,13 +28,23 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      redirect_to @user, notice: "Пользователь отредактирован успешно"
+    end
   end
 
   def destroy
+    if @user.destroy
+      redirect_to @user, notice: "Пользователь удалён успешно"
+    end
   end
 
   private
   def user_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def set_user
+    @user = User.find params[:id]
   end
 end

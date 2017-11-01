@@ -249,6 +249,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  builder
   byebug
   capybara (~> 2.13)
   capybara-webkit
