@@ -11,3 +11,6 @@ ru:
       competence:
         title: 'Название'
         description: 'Описание'
+      user:
+        email: 'Электропочта'
+        password: 'Пароль'
