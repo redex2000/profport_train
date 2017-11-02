@@ -39,6 +39,7 @@ en:
     models:
       competence:
         one: 'Competence'
+        more: 'Competences'
     attributes:
       competence:
         title: 'Title'

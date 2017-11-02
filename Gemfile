@@ -40,6 +40,10 @@ gem "webpacker", "~> 3.0"
 
 gem "rubocop-rails"
 
+gem "devise"
+gem "devise-bootstrap-views"
+gem "pundit"
+
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 

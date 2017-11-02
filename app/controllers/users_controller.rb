@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :auth_user
+
+  rescue_from Pundit::NotAuthorizedError do
+    redirect_to root_path, alert: "У вас не прав на выполнение этой операции"
+  end
 
   def index
     @users = User.all
@@ -46,5 +51,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find params[:id]
+  end
+
+  def auth_user
+    # authorize User
   end
 end
