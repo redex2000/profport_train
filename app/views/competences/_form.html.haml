@@ -1,8 +1,13 @@
 = simple_form_for @competence do |form|
   = form.input :title
   = form.input :description
-  = form.simple_fields_for :terms do |term|
-    = term.input :title
-    = term.input :definition, as: :text
-    = term.input :_destroy, as: :boolean
+  = link_to '', '#', class: 'glyphicon glyphicon-plus pull-right add-term', title: 'Добавить'
+  = hidden_field_tag '', @competence.terms.count, id: 'terms-count'
+  .terms
+    = form.simple_fields_for :terms do |term|
+      %h3 Термины
+      .term
+        = term.input :title, label: 'Название'
+        = term.input :definition, as: :text, label: 'Определение'
+        = term.input :_destroy, as: :boolean, label: 'Удалить'
   = form.button :submit, class: 'btn-info'
