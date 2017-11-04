@@ -3,5 +3,5 @@
   %td= term.definition
   %td
     - unless current_user.learning?(term)
-      = form_with method: :patch, url: learn_term_path(term), local: true do |form|
-        = form.submit t('helpers.actions.learn'), class: ''
+      = form_with method: :patch, url: learn_term_path(term) do |form|
+        = form.submit t('helpers.actions.learn'), id: "learn-btn-#{term.id}"
