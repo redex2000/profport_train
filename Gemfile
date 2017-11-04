@@ -35,6 +35,7 @@ gem "builder"
 
 gem "bootstrap-sass"
 gem "haml"
+gem "haml-rails"
 gem "simple_form"
 gem "webpacker", "~> 3.0"
 

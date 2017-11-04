@@ -3,6 +3,11 @@ ru:
     submit:
       create: 'Создать'
       update: 'Обновить'
+    actions:
+      edit: 'Редактировать'
+      back: 'Назад'
+      learn: 'Изучить'
+
   activerecord:
     models:
       competence:
@@ -15,3 +20,9 @@ ru:
       user:
         email: 'Электропочта'
         password: 'Пароль'
+    errors:
+      models:
+        concept:
+          attributes:
+            user_id:
+              taken: 'Пользователь уже изучает этот термин!'

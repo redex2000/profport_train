@@ -1,0 +1,7 @@
+%table.table.table-hover.table-striped
+  %tr
+    %th Название
+    %th Определение
+    %th
+  - terms.each do |t|
+    = render partial: 'terms/term', locals: { term: t }

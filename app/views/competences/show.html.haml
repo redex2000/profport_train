@@ -1,0 +1,12 @@
+%p
+  %strong= t('activerecord.attributes.competence.title')
+  = @competence.title
+
+%p
+  %strong= t('activerecord.attributes.competence.description')
+  = @competence.description
+
+= render partial: 'terms/terms', locals: { terms: @competence.terms }
+
+= link_to t('helpers.actions.edit'), edit_competence_path(@competence) |
+= link_to t('helpers.actions.back'), competences_path
