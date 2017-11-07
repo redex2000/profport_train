@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     patch :learn, on: :member
   end
   resources :users
+
+  namespace :api do
+    resources :competences, only: [:index]
+  end
 end
