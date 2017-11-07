@@ -26,11 +26,20 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :concepts
 
+  before_create { self.token = generate_token }
+
   def admin?
     admin
   end
 
   def learning?(term)
     term.user_ids.include? id
+  end
+
+  def generate_token
+    loop do
+      token = SecureRandom.base64(32).tr('+-=', 'Qtr')
+      break token unless User.exists? token: token
+    end
   end
 end
