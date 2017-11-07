@@ -26,3 +26,7 @@ ru:
           attributes:
             user_id:
               taken: 'Пользователь уже изучает этот термин!'
+        competence:
+          attributes:
+            title:
+              blank: 'Не указано название компетенции!'

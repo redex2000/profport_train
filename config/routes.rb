@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :api do
-    resources :competences, only: [:index]
+    namespace :v1 do
+      resources :competences, only: [:index, :show]
+    end
+
+    namespace :v2 do
+      resources :competences, only: [:index, :show, :create]
+    end
   end
 end
