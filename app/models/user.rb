@@ -38,7 +38,7 @@ class User < ApplicationRecord
 
   def generate_token
     loop do
-      token = SecureRandom.base64(32).tr('+-=', 'Qtr')
+      token = SecureRandom.base64(32)
       break token unless User.exists? token: token
     end
   end

@@ -29,6 +29,8 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "builder"
 gem "active_model_serializers"
+gem "rack-attack"
+gem "rack-cors", require: 'rack/cors'
 gem "annotate"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 3.0"
