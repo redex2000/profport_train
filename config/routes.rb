@@ -18,6 +18,12 @@ Rails.application.routes.draw do
 
     namespace :v2 do
       resources :competences, only: [:index, :show, :create]
+      resources :users, only: [] do
+        collection do
+          post :sign_up
+          post :sign_in
+        end
+      end
     end
   end
 end
