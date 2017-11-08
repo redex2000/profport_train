@@ -11,4 +11,8 @@ class TermsController < ApplicationController
       end
     end
   end
+
+  def index
+    @terms = Term.includes(:competence)
+  end
 end

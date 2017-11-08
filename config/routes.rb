@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       patch :learn, on: :member
     end
   end
+  resources :terms, only: [:index]
   resources :users
 
   namespace :api do

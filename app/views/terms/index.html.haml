@@ -1,0 +1,8 @@
+%table.table.table-hover.table-striped
+  %tr
+    %th Название
+    %th Компетенция
+  - @terms.each do |term|
+    %tr
+      %td= term.title
+      %td= term.competence.title
