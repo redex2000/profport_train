@@ -15,6 +15,7 @@
 class Concept < ApplicationRecord
   belongs_to :user
   belongs_to :term
+  belongs_to :compy
 
   validates :user_id, uniqueness: { scope: :term_id }
 end

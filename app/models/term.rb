@@ -16,4 +16,12 @@ class Term < ApplicationRecord
   has_many :concepts
   has_many :users, through: :concepts
   belongs_to :competence
+
+  # Пока реализуем таким образом.
+  # Можно передавать и компетенцию (если изучаем отдельно этот термин), и компетентность (если изучаем в рамках компетентности).
+  def learn(by_user, compy)
+    compy = Compy.create(user: by_user, competence: compy)  if compy.is_a? Competence
+    concept = Concept.new term: self, user: by_user, compy: compy
+    concept.save
+  end
 end

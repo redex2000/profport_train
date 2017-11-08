@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107094135) do
+ActiveRecord::Schema.define(version: 20171108084011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,24 @@ ActiveRecord::Schema.define(version: 20171107094135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "compies", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "competence_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["competence_id"], name: "index_compies_on_competence_id"
+    t.index ["user_id", "competence_id"], name: "index_compies_on_user_id_and_competence_id", unique: true
+    t.index ["user_id"], name: "index_compies_on_user_id"
+  end
+
   create_table "concepts", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "term_id"
     t.float "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "compy_id"
+    t.index ["compy_id"], name: "index_concepts_on_compy_id"
     t.index ["term_id"], name: "index_concepts_on_term_id"
     t.index ["user_id", "term_id"], name: "index_concepts_on_user_id_and_term_id", unique: true
     t.index ["user_id"], name: "index_concepts_on_user_id"
@@ -78,6 +90,9 @@ ActiveRecord::Schema.define(version: 20171107094135) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "compies", "competences"
+  add_foreign_key "compies", "users"
+  add_foreign_key "concepts", "compies"
   add_foreign_key "skills", "instructions"
   add_foreign_key "skills", "users"
   add_foreign_key "terms", "competences"

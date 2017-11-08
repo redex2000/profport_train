@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CompetencesController < ApplicationController
-  before_action :set_competence, only: [:show, :edit, :update, :destroy]
+  before_action :set_competence, only: [:show, :edit, :update, :destroy, :learn]
 
   # GET /competences
   # GET /competences.json
@@ -61,6 +61,16 @@ class CompetencesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to competences_url, notice: "Competence was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def learn
+    respond_to do |format|
+      if @competence.learn(current_user)
+        format.js
+      else
+        format.js { alert("Что-то пошло не так") }
+      end
     end
   end
 

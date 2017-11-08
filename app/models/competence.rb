@@ -12,8 +12,19 @@
 
 
 class Competence < ApplicationRecord
-  validates :title, presence: true
 
   has_many :terms
+  has_many :compies
+  has_many :users, through: :compies
+
+  validates :title, presence: true
   accepts_nested_attributes_for :terms, allow_destroy: true, reject_if: ->(attr) { attr["title"].blank? }
+
+  def learn(by_user)
+    self.transaction do
+      compy = Compy.create(user: by_user, competence: self)
+      terms.each { |term| term.learn(by_user, compy) }
+    end
+    true
+  end
 end

@@ -32,8 +32,12 @@ class User < ApplicationRecord
     admin
   end
 
-  def learning?(term)
-    term.user_ids.include? id
+  def learning?(smth)
+    if smth.respond_to? :user_ids
+      smth.user_ids.include? id
+    else
+      false
+    end
   end
 
   def generate_token

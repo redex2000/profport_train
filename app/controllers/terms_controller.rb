@@ -1,9 +1,8 @@
 class TermsController < ApplicationController
   def learn
     @term = Term.find params[:id]
-    concept = Concept.new term: @term, user: current_user
     respond_to do |format|
-      if concept.save
+      if @term.learn(current_user, Competence.find(params[:competence_id]))
         format.html { redirect_to @term.competence, notice: "Вы начали изучать термин" }
         format.js
       else

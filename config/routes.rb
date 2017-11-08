@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "competences#index"
 
-  resources :competences
-  resources :terms do
-    # Добавляем нестандартное действие для одного термина (member)
+  resources :competences do
     patch :learn, on: :member
+
+    resources :terms, only: [] do
+      # Добавляем нестандартное действие для одного термина (member)
+      patch :learn, on: :member
+    end
   end
   resources :users
 

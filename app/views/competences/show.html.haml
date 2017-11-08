@@ -6,7 +6,10 @@
   %strong= t('activerecord.attributes.competence.description')
   = @competence.description
 
-= render partial: 'terms/terms', locals: { terms: @competence.terms }
+- unless current_user.learning? @competence
+  %p= link_to t('helpers.actions.learn'), learn_competence_path(@competence), remote: true, method: :patch, class: 'btn btn-info pull-right btn__learn'
+
+= render partial: 'terms/terms', locals: { terms: @competence.terms, competence: @competence }
 
 = link_to t('helpers.actions.edit'), edit_competence_path(@competence) |
 = link_to t('helpers.actions.back'), competences_path
