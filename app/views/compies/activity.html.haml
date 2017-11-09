@@ -1,2 +1,8 @@
-%h2 Активность в системе
-.activity-log= render partial: 'compy', collection: @compies
+.container
+  .row
+    .col-md-7
+      %h2 Активность в системе
+      .activity-log= render partial: 'compy', collection: @compies
+    .col-md-4.col-md-offset-1
+      %h2 Пользователи онлайн
+      .online-users

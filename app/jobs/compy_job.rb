@@ -2,7 +2,7 @@ class CompyJob < ApplicationJob
   queue_as :default
 
   def perform(compy)
-    ActionCable.server.broadcast "compy_channel", message: render_event(compy)
+    ActionCable.server.broadcast "compy_channel", event: render_event(compy)
   end
 
   private

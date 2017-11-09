@@ -29,9 +29,18 @@ class User < ApplicationRecord
   before_create { self.token = generate_token }
 
   scope :admin, -> { where(admin: true) }
+  scope :online, -> { where(online: true) }
 
   def admin?
     admin
+  end
+
+  def appear
+    self.update_column :online, true
+  end
+
+  def disappear
+    self.update_column :online, false
   end
 
   def learning?(smth)
