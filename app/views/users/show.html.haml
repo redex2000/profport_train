@@ -1,5 +1,7 @@
 %p
   %strong Электропочта
   = @user.email
+  = image_tag @user.avatar.small.url, alt: 'Аватар'
+%p= link_to 'Редактировать', edit_user_registration_path(@user)
 %h3 Изучаемые понятия
 = render partial: 'concepts/concept', collection: @user.concepts

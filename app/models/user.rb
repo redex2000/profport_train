@@ -31,6 +31,8 @@ class User < ApplicationRecord
   scope :admin, -> { where(admin: true) }
   scope :online, -> { where(online: true) }
 
+  mount_uploader :avatar, AvatarUploader
+
   def admin?
     admin
   end

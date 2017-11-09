@@ -1,1 +1,3 @@
-%p.user{'data-id' => user_line.id}= user_line.email
+%p.user{'data-id' => user_line.id}
+  = image_tag user_line.avatar.tiny.url
+  = user_line.email

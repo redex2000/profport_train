@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
   resources :terms, only: [:index, :show], concerns: [:commentable]
-  resources :users
+  resources :users, only: [:index, :show]
   resources :compies, only: [] do
     get :activity, on: :collection
   end
