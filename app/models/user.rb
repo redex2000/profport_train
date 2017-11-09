@@ -28,6 +28,8 @@ class User < ApplicationRecord
 
   before_create { self.token = generate_token }
 
+  scope :admin, -> { where(admin: true) }
+
   def admin?
     admin
   end

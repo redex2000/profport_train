@@ -26,5 +26,7 @@ module ProfportTrain
         resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
     end
+
+    config.x.profport_train.admin_mail = 'admin@profport.org'
   end
 end
