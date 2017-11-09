@@ -1,0 +1,5 @@
+%p.event
+  = compy.updated_at.strftime("%Y-%m-%d %H:%M:%S")
+  = compy.user.email
+  = t('helpers.actions.master_in').downcase
+  = "'#{compy.competence.title}'"

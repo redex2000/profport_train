@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   end
   resources :terms, only: [:index, :show], concerns: [:commentable]
   resources :users
+  resources :compies, only: [] do
+    get :activity, on: :collection
+  end
 
   resources :private_competences, controller: :competences, type: "PrivateCompetence", concerns: [:commentable]
   resources :professional_competences, controller: :competences, type: "PrivateCompetence", concerns: [:commentable]

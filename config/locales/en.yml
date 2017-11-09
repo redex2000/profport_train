@@ -9,6 +9,7 @@ en:
       back: 'Back'
       learn: 'Learn'
       learn_later: 'Learn later'
+      master_in: 'Master in competence'
 
   activerecord:
     models:

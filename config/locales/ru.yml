@@ -8,6 +8,7 @@ ru:
       back: 'Назад'
       learn: 'Изучить'
       learn_later: 'Изучить позже'
+      master_in: 'Начал прокачивать компетенцию'
 
   activerecord:
     models:
