@@ -15,6 +15,7 @@
 class Term < ApplicationRecord
   has_many :concepts
   has_many :users, through: :concepts
+  has_many :comments, as: :commentable
   belongs_to :competence
 
   # Пока реализуем таким образом.

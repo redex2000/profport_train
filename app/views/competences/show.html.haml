@@ -13,3 +13,7 @@
 
 = link_to t('helpers.actions.edit'), edit_competence_path(@competence) |
 = link_to t('helpers.actions.back'), competences_path
+
+= render 'comments/form'
+= render partial: 'comments/comment', collection: @competence.comments
+

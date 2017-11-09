@@ -12,10 +12,10 @@
 
 
 class Competence < ApplicationRecord
-
   has_many :terms
   has_many :compies
   has_many :users, through: :compies
+  has_many :comments, as: :commentable
 
   validates :title, presence: true
   accepts_nested_attributes_for :terms, allow_destroy: true, reject_if: ->(attr) { attr["title"].blank? }

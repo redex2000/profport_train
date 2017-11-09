@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "competences#index"
 
-  resources :competences do
+  concern :commentable do
+    resources :comments
+  end
+
+  resources :competences, concerns: [:commentable] do
     patch :learn, on: :member
 
     resources :terms, only: [] do
@@ -12,8 +16,9 @@ Rails.application.routes.draw do
       patch :learn, on: :member
     end
   end
-  resources :terms, only: [:index]
+  resources :terms, only: [:index], concerns: [:commentable]
   resources :users
+
 
   namespace :api do
     namespace :v1 do

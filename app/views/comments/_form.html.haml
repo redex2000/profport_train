@@ -1,0 +1,11 @@
+%h3 Добавить комментарий
+= simple_form_for [@competence, Comment.new] do |form|
+  = form.error_notification
+  %p
+    %strong Автор
+    = current_user.email
+  = form.input :content, as: :text
+  = form.hidden_field :commentable_id, value: @competence.id
+  = form.hidden_field :user_id, value: current_user.id
+  = form.hidden_field :commentable_type, value: 'Competence'
+  = form.submit
