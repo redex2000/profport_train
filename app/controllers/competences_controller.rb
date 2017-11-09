@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CompetencesController < ApplicationController
-  before_action :set_competence, only: [:show, :edit, :update, :destroy, :learn]
+  before_action :set_competence, only: [:show, :edit, :update, :destroy, :learn, :learn_later]
 
   # GET /competences
   # GET /competences.json
@@ -72,6 +72,10 @@ class CompetencesController < ApplicationController
         format.js { alert("Что-то пошло не так") }
       end
     end
+  end
+
+  def learn_later
+    CompetenceJob.set(wait: Competence::STUDY_DELAY.minutes).perform_later(@competence, current_user)
   end
 
   private

@@ -12,6 +12,9 @@
 
 
 class Competence < ApplicationRecord
+  # Время, через которое будем изучать компетенцию, в минутах
+  STUDY_DELAY = 2
+
   has_many :terms
   has_many :compies
   has_many :users, through: :compies

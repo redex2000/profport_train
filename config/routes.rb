@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :competences, concerns: [:commentable] do
-    patch :learn, on: :member
+    member do
+      patch :learn
+      patch :learn_later
+    end
 
     resources :terms, only: [] do
       # Добавляем нестандартное действие для одного термина (member)

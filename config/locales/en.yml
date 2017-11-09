@@ -8,6 +8,7 @@ en:
       edit: 'Edit'
       back: 'Back'
       learn: 'Learn'
+      learn_later: 'Learn later'
 
   activerecord:
     models:

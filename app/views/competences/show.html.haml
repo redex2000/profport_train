@@ -8,6 +8,7 @@
 
 - unless current_user.learning? @competence
   %p= link_to t('helpers.actions.learn'), learn_competence_path(@competence), remote: true, method: :patch, class: 'btn btn-info pull-right btn__learn'
+  %p= link_to t('helpers.actions.learn_later'), learn_later_competence_path(@competence), remote: true, method: :patch, class: 'btn btn-success pull-right btn__learn'
 
 = render partial: 'terms/terms', locals: { terms: @competence.terms, competence: @competence }
 
