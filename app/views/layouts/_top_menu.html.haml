@@ -1,6 +1,7 @@
 .nav.navbar.navbar-default
   .ul.navbar-nav.nav.pull-right
     %li= link_to 'Компетенции', competences_path
+    %li= link_to 'Активность', activity_compies_path
     - if user_signed_in?
       %li= link_to "Пользователи", users_path if policy(:user).index?
       %li.dropdown

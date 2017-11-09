@@ -1,7 +1,7 @@
 class CompyChannel < ApplicationCable::Channel
   def subscribed
     current_user.appear
-    ActionCable.server.broadcast "compy_channel", user: render(current_user), status: 'online'
+    ActionCable.server.broadcast "compy_channel", user: render(current_user), status: 'online', id: current_user.id
   end
 
   def follow
@@ -15,6 +15,6 @@ class CompyChannel < ApplicationCable::Channel
 
   private
     def render(user)
-      ApplicationController.renderer.render(partial: 'users/user_line', locals: { user: user })
+      ApplicationController.renderer.render(partial: 'users/user_line', locals: { user_line: user })
     end
 end
