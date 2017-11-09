@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :terms, only: [:index, :show], concerns: [:commentable]
   resources :users
 
+  resources :private_competences, controller: :competences, type: "PrivateCompetence", concerns: [:commentable]
+  resources :professional_competences, controller: :competences, type: "PrivateCompetence", concerns: [:commentable]
 
   namespace :api do
     namespace :v1 do

@@ -6,7 +6,7 @@ class CompetencesController < ApplicationController
   # GET /competences
   # GET /competences.json
   def index
-    @competences = Competence.all
+    @competences = competence_class.all
   end
 
   # GET /competences/1
@@ -82,6 +82,14 @@ class CompetencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def competence_params
-      params.require(:competence).permit(:title, :description, terms_attributes: [ :id, :title, :definition, :_destroy ])
+      params.require(competence_type.singularize.underscore.to_sym).permit(:title, :description, terms_attributes: [ :id, :title, :definition, :_destroy ])
+    end
+
+    def competence_type
+      Competence.types.include?(params[:type]) ? params[:type] : "Competence"
+    end
+
+    def competence_class
+      competence_type.constantize
     end
 end

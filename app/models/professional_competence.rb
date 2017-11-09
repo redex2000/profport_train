@@ -1,0 +1,2 @@
+class ProfessionalCompetence < Competence
+end

@@ -20,6 +20,9 @@ class Competence < ApplicationRecord
   validates :title, presence: true
   accepts_nested_attributes_for :terms, allow_destroy: true, reject_if: ->(attr) { attr["title"].blank? }
 
+  scope :privates, -> { where(type: 'PrivateCompetence') }
+  scope :professionals, -> { where(type: 'ProfessionalCompetence') }
+
   def learn(by_user)
     self.transaction do
       compy = Compy.create(user: by_user, competence: self)
@@ -27,4 +30,9 @@ class Competence < ApplicationRecord
     end
     true
   end
+
+  def self.types
+    %w(PrivateCompetence ProfessionalCompetence)
+  end
+
 end

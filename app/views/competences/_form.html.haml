@@ -1,6 +1,7 @@
 = simple_form_for @competence do |form|
   = form.input :title
   = form.input :description
+  = form.input :type, collection: [['Личностная', 'PrivateCompetence'], ['Профессиональная', 'ProfessionalCompetence']], include_blank: true, include_hidden: true
   = link_to '', '#', class: 'glyphicon glyphicon-plus pull-right add-term', title: 'Добавить'
   = hidden_field_tag '', @competence.terms.count, id: 'terms-count'
   .terms

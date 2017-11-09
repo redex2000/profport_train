@@ -1,0 +1,2 @@
+class PrivateCompetence < Competence
+end
