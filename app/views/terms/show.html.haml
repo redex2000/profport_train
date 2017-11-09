@@ -1,0 +1,6 @@
+%p
+  %strong Название
+  = @term.title
+
+= render partial: 'comments/form', locals: { parent: @term }
+= render partial: 'comments/comment', collection: @term.comments

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       patch :learn, on: :member
     end
   end
-  resources :terms, only: [:index], concerns: [:commentable]
+  resources :terms, only: [:index, :show], concerns: [:commentable]
   resources :users
 
 

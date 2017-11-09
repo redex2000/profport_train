@@ -15,4 +15,8 @@ class TermsController < ApplicationController
   def index
     @terms = Term.includes(:competence)
   end
+
+  def show
+    @term = Term.find(params[:id])
+  end
 end
