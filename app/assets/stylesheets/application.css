@@ -1,5 +1,9 @@
 /*
  *
+ *= require ./theme-forest/superfish
+ *= require ./theme-forest/style
+ *= require ./theme-forest/fontello/css/fontello
+ *= require ./theme-forest/color_scheme
  *= require_tree .
  *= require_self
  */

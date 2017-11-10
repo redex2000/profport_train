@@ -1,9 +1,9 @@
-.nav
+%nav
   .container
     .row
       .col-md-12
         #mobnav-btn
-        .ul.sf-menu
+        %ul.sf-menu
           %li= link_to 'Компетенции', competences_path
           %li= link_to 'Активность', activity_compies_path
           - if user_signed_in?

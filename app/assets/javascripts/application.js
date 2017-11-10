@@ -14,6 +14,8 @@
 //= require turbolinks
 //= require jquery
 //= require ./theme-forest/superfish
-//= require ./theme-forest/jquery.placeholder
 //= require bootstrap
+//= require ./theme-forest/jquery.placeholder
+//= require ./theme-forest/functions
+//= require ./theme-forest/classie
 //= require_tree .
