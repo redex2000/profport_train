@@ -1,3 +1,7 @@
-%p.user{'data-id' => user_line.id}
-  = image_tag user_line.avatar.tiny.url
-  = user_line.email
+.user{'data-id' => user_line.id}
+  %div.avatar
+    %div= image_tag user_line.avatar.tiny.url
+    %div.status.on
+  %div
+    %div= user_line.email
+    %small= role(user_line)
