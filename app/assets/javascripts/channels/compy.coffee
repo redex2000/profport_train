@@ -11,6 +11,6 @@ App.compy = App.cable.subscriptions.create "CompyChannel",
       $('.activity-log .event:first-child').fadeOut 400, -> $(this).fadeIn()
     else if 'user' of data
       if data['status'] == 'online'
-        $('.online-users').append(data['user']) unless $('.user[data-id='+data['id']+']').length
+        $('.online-users').append(data['user']) # unless $('.user[data-id='+data['id']+']').length
       else if data['status'] == 'offline'
         $('.user[data-id='+data['id']+']').fadeOut()
