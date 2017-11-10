@@ -1,5 +1,7 @@
-%p.event
-  = compy.updated_at.strftime("%Y-%m-%d %H:%M:%S")
-  = compy.user.email
-  = t('helpers.actions.master_in').downcase
-  = "'#{compy.competence.title}'"
+.event
+  .event-content
+    .text-background= compy.updated_at.strftime("%Y-%m-%d %H:%M:%S")
+    %p
+      = compy.user.email
+      = t('helpers.actions.master_in').downcase
+    %span.competence= "#{compy.competence.title}"

@@ -1,0 +1,57 @@
+$small-color: #98a6ad;
+$unit: 10px;
+
+@mixin border-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  background-color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  border-radius: 10px;
+  content: '';
+  top: 5px;
+}
+
+.activity-log {
+  position: relative;
+  border-left: 1px solid #dee5e7;
+
+  &::after {
+    @include border-left;
+  }
+
+  .event {
+    position: relative;
+    padding-bottom: 1px;
+    margin-bottom: $unit + 5px;
+
+    .event-content {
+      margin-left: 15px;
+
+      .text-background {
+        color: $small-color;
+      }
+
+      .competence {
+        padding: $unit;
+        background-color: #004e6d;
+        color: #1ed0a6;
+        border-radius: 4px;
+      }
+
+    }
+
+    &::after {
+      display: table;
+      content: " ";
+      @include border-left;
+    }
+
+
+  }
+}
