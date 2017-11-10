@@ -1,15 +1,18 @@
 !!!
 %html
   %head
-    %title ProfportTrain
+    - content_for(:title, "Прокачиваем компетенции")
+    %title= "ПрофПорт-Образование | #{yield(:title)}"
+
     = csrf_meta_tags
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
+    = render 'layouts/header'
+    = render 'layouts/sub_header'
     = render 'layouts/top_menu'
     = render 'layouts/flashes'
-    .container
-      .row
-        .col-md-8.col-md-offset-1= yield
+    = render 'layouts/main_container'
+    = render 'layouts/footer'

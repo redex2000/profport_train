@@ -13,5 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
+//= require ./theme-forest/superfish
+//= require ./theme-forest/jquery.placeholder
 //= require bootstrap
 //= require_tree .

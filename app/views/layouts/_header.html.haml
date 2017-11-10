@@ -1,0 +1,13 @@
+%header>
+  .container
+    .row
+      .col-md-3.col-sm-3.col-xs-3
+        = link_to 'ПрофПорт-Образование', root_path, id: 'logo'
+      .col-md-9.col-sm-9.col-xs-9
+        - unless user_signed_in?
+          .pull-right
+            = link_to 'Войти', new_user_session_path, class: "button_top", id: "login_top"
+            = link_to 'Регистрация', new_user_registration_path, class: "button_top hidden-xs", id: "apply"
+        %ul#top_nav.hidden-xs
+          %li= link_to 'О проекте', '#'
+          %li= link_to 'Терминология', '#'
